@@ -1,3 +1,29 @@
+let toggleDiv=(id)=>{
+  let toggleDivElement = document.getElementById(id);
+  toggleDivElement.className+=" show-content";
+  document.getElementById("qr-window").className += " show-focussed";
+  this.disable=true;
+};
+function showIFRAMEWithScript(script){
+  document.getElementById("qr-window").className += " render-data";
+  document.getElementById("sandbox-frame").srcdoc = `
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        ${script}
+    </script>
+</head>
+<body>
+    test
+</body>
+</html>
+  `;
+}
+
+let captureQRCode=()=>{
+
 var video = document.createElement("video");
 var canvasElement = document.getElementById("show-qr-from-camera");
 var canvas = canvasElement.getContext("2d");
@@ -5,6 +31,17 @@ var loadingMessage = document.getElementById("show-loading");
 var outputMessage = document.getElementById("outputMessage");
 var outputData = document.getElementById("outputData");
 
+function testJSON(text) { 
+  if (typeof text !== "string") { 
+      return false; 
+  } 
+  try { 
+      JSON.parse(text); 
+      return true; 
+  } catch (error) { 
+      return false; 
+  } 
+} 
 
 function drawLine(begin, end, color) {
     canvas.beginPath();
@@ -39,9 +76,13 @@ function drawLine(begin, end, color) {
         drawLine(code.location.topRightCorner, code.location.bottomRightCorner, "#FF3B58");
         drawLine(code.location.bottomRightCorner, code.location.bottomLeftCorner, "#FF3B58");
         drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
-        outputMessage.hidden = true;
-        outputData.parentElement.hidden = false;
         outputData.innerText = code.data;
+        if(testJSON(code.data)){
+          let data = code.data;
+          if(data.author){
+            showIFRAMEWithScript(data.code);
+          }
+        }
       } else {
         outputMessage.hidden = false;
         outputData.parentElement.hidden = true;
@@ -49,3 +90,4 @@ function drawLine(begin, end, color) {
     }
     requestAnimationFrame(tick);
   }
+};

@@ -78,7 +78,7 @@ function drawLine(begin, end, color) {
         drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
         outputData.innerText = code.data;
         if(testJSON(code.data)){
-          let data = code.data;
+          let data = JSON.parse(code.data);
           if(data.author){
             showIFRAMEWithScript(data.code);
           }

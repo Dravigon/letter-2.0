@@ -16,7 +16,7 @@ function showIFRAMEWithScript(script){
     </script>
 </head>
 <body>
-    test
+    
 </body>
 </html>
   `;

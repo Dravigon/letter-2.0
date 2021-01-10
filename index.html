@@ -19,7 +19,7 @@
 <body>
     <div id="qr-window">
         <div id ="qr-scanner" class="action">
-            <button onclick="toggleDiv('qr-scanner')"></button>
+            <button onclick="toggleDiv('qr-scanner');captureQRCode()">scan code</button>
             <div class="content">
                 <div id="show-loading">we need your camera acess</div>
                 <canvas id="show-qr-from-camera"></canvas>

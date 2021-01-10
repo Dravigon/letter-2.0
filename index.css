@@ -4,6 +4,7 @@ body > .qr-window
 .qr-window > .qr-creator
 .qr-window > .show-content
 */
+
 .qr-window{
     width: 100%;
     height: 100%;
@@ -36,4 +37,7 @@ body > .qr-window
 }
 .data-frame.show-content{
     display: flex;
+}
+canvas{
+    max-height: 50%;
 }

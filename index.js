@@ -78,10 +78,10 @@ function drawLine(begin, end, color) {
         drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
         outputData.innerText = code.data;
         if(testJSON(code.data)){
-          let data = JSON.parse(code.data);
-          outputData.innerText = data.code;
-          if(data.author){
-            showIFRAMEWithScript(data.code);
+          let qrdata = JSON.parse(code.data);
+          outputData.innerText = qrdata.code;
+          if(qrdata.author){
+            showIFRAMEWithScript(qrdata.code);
           }
         }
       } else {

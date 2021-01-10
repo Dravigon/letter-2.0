@@ -1,0 +1,39 @@
+/*
+body > .qr-window
+.qr-window > .qr-scanner
+.qr-window > .qr-creator
+.qr-window > .show-content
+*/
+.qr-window{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.qr-scanner,.qr-creator{
+    margin: auto;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.data-frame{
+    display: none;
+}
+.action button{
+    display: flex;
+    width:50%;
+    height:100px;
+}
+.action .content{
+    display: none;
+}
+.action.show-content button{
+    display: none;
+}
+.action.show-content .content{
+    display: flex;
+}
+.data-frame.show-content{
+    display: flex;
+}

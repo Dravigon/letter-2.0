@@ -79,7 +79,7 @@ function drawLine(begin, end, color) {
         outputData.innerText = code.data;
         if(testJSON(code.data)){
           let qrdata = JSON.parse(code.data);
-          outputData.innerText = qrdata.code;
+          outputData.innerText = "acrual data "+ qrdata.author;
           if(qrdata.author){
             showIFRAMEWithScript(qrdata.code);
           }

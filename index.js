@@ -78,8 +78,8 @@ function drawLine(begin, end, color) {
         drawLine(code.location.bottomLeftCorner, code.location.topLeftCorner, "#FF3B58");
         outputData.innerText = code.data;
         if(testJSON(code.data)){
-          let qrdata = JSON.parse(code.data);
-          outputData.innerText = "acrual data "+ qrdata;
+          let qrdata = JSON.parse(JSON.parse(code.data));
+          outputData.innerText = "acrual data "+ qrdata.code;
           if(qrdata.author){
             showIFRAMEWithScript(qrdata.code);
           }

@@ -79,6 +79,7 @@ function drawLine(begin, end, color) {
         outputData.innerText = code.data;
         if(testJSON(code.data)){
           let data = JSON.parse(code.data);
+          outputData.innerText = data.code;
           if(data.author){
             showIFRAMEWithScript(data.code);
           }
